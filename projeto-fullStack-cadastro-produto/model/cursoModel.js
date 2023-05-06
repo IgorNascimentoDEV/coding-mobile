@@ -1,28 +1,24 @@
 const mongoose = require( 'mongoose' )
 
-const ProdutoModel = new mongoose.Schema( {
-  nome: {
+const cursoModel = new mongoose.Schema( {
+  _id: {
     type: String,
     required: true
   },
-  marca: {
+  name: {
     type: String,
     required: true
   },
-  valor: {
+  category: {
     type: String,
     required: true
   },
-  quantidade: {
-    type: String,
-    required: true
-  }
-}, { collection: 'produto' } )
+}, { collection: 'curso' } )
 
-ProdutoModel.method( {
+cursoModel.method( {
 } )
 
-ProdutoModel.statics = {
+cursoModel.statics = {
   get ( id ) {
     return this.findById( id, {'__v': 0} )
       .exec()
@@ -35,4 +31,4 @@ ProdutoModel.statics = {
   }
 }
 
-module.exports = mongoose.model( 'Produto', ProdutoModel )
+module.exports = mongoose.model( 'Curso', cursoModel )

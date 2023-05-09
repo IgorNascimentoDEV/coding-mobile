@@ -1,0 +1,23 @@
+mat-card{
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.column-flex{
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.mat{
+  padding: 1%;
+}
+
+.loading-spinner{
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.15);
+}

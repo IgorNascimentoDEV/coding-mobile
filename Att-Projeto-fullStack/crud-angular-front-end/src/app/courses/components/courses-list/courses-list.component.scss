@@ -1,0 +1,36 @@
+/* Torna a tabela responsiva */
+.mat-table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* Define a largura das colunas */
+.mat-column-name,
+.mat-column-category,
+.mat-column-actions {
+  flex: 1 0 0;
+  width: 100%;
+}
+
+/* Remove a borda superior da tabela */
+.mat-header-row {
+  border-top: none;
+}
+
+/* Alinha a coluna de ações à direita */
+.mat-column-actions {
+  text-align: right;
+}
+
+.mdc-data-table__cell, .mdc-data-table__header-cell {
+  padding: 0 10px 0 5px;
+}
+
+
+/* Remove o ícone da categoria quando a tabela estiver muito estreita */
+@media screen and (max-width: 600px) {
+  .mat-cell .category-icon {
+    display: none;
+  }
+}

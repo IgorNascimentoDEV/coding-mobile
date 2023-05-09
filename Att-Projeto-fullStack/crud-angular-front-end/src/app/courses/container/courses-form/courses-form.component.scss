@@ -1,0 +1,26 @@
+.full-width{
+  width: 100%;
+  min-width: fit-content;
+}
+mat-card{
+max-width: 80%;
+margin: 2em auto;
+text-align: center;
+}
+
+.min-width{
+  width: fit-content;
+}
+
+button{
+  margin-right: 1rem;
+}
+
+.mdc-card__actions{
+  display: block;
+}
+
+.caixa{
+  display: flex;
+  align-items: center;
+}

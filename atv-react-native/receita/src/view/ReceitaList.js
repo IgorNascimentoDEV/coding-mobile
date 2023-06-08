@@ -1,12 +1,29 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, {useContext} from "react";
+import { View, Text, Alert } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import receitas from "../view/data/Receitas";
 import { ListItem, Avatar } from "react-native-elements";
 import { Button, Icon } from 'react-native-elements';
+import ReceitasContext from "../context/ReceitasContext";
 
 
 export default (props) => {
+
+  const { state } = useContext(ReceitasContext)
+
+  function confirmUserDeletio(receita){
+      Alert.alert('Excluir receita', 'Deseja excluir a receita?',[
+        {
+          text:'Sim',
+          onPress(){
+            console.warn('delete', + receita.id)
+          }
+        },
+        {
+          text:'Não'
+        }
+      ])
+  }
+
   function getActions(receita) {
     console.log('tá funcionando va descansar workarround na veia!!')
     props.navigation.navigate("ReceitaForm", receita)
@@ -28,6 +45,11 @@ export default (props) => {
         type="clear"
         icon={<Icon name="edit" size={35} color="orange" />}
       />
+        <Button
+        onPress={() => confirmUserDeletio(receita)}
+        type="clear"
+        icon={<Icon name="delete" size={35} color="red" />}
+      />
       </ListItem>
     );
   }
@@ -36,7 +58,7 @@ export default (props) => {
     <View style={{ flex: 1 }}>
       <FlatList
         keyExtractor={(receita) => receita.id.toString()}
-        data={receitas}
+        data={state.receitas}
         renderItem={getReceitaItem}
       />
     </View>

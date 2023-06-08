@@ -4,12 +4,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ReceitaList from './src/view/ReceitaList';
 import ReceitaForm from './src/view/ReceitaForm';
 import { Button, Icon } from 'react-native-elements';
+import { ReceitasProvider } from './src/context/ReceitasContext'
 
 const Stack = createStackNavigator();
 
 export default props => {
     return (
-        <NavigationContainer>
+        <ReceitasProvider>
+            <NavigationContainer>
             <Stack.Navigator initialRouterName="ReceitaList" screenOptions={screenOptions}>
                 <Stack.Screen
                     name="ReceitaList"
@@ -37,6 +39,8 @@ export default props => {
                 />
             </Stack.Navigator>
         </NavigationContainer>
+       </ReceitasProvider>
+        
     );
 }
 
